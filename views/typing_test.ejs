@@ -5,14 +5,20 @@
     <link rel='stylesheet' href='/stylesheets/typing_test.css' />
     <script>
 		var word_list = <%- JSON.stringify(word_list) %>;
+		var on_word = 0;
+		var on_letter = 0;
+		var check_space = false;
+		var check_backspace_space = false;	// works reverse of check_space
+		var pop_line = false;
+		var line = 0;
 	</script>
   </head>
   <body>
     <div id='title_div'>
     	<h1><%= title %></h1>
+    	<p>Works only in full screen(don't minimize)</p>
     </div>
     <div id='display_para_div'>
-    	<% for(var i=0; i<word_list.length; i++) {%><span id='word_<%= i %>'><% for(var j=0; j<word_list[i].length; j++) {%><span class='not_typed' id='word_<%= i %>_<%= j %>'><%=word_list[i][j]%></span><% } %><!-- Single line else whitespace is added between letters of a span!! --></span><span id='space_<%= i %>'> </span><% } %>
     </div>
     <div id='user_input_div'>
     </div>
