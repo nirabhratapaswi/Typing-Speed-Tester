@@ -1,0 +1,45 @@
+body {
+	padding: 10;
+	align-items: center;
+	width: 100%;
+	background-color: #EEEEEE;
+}
+
+.correct_typed {
+	color: #00E676;
+}
+
+.wrong_typed: {
+	color: #E53935;
+}
+
+.not_typed {
+	color: #757575;
+}
+
+#title_div {
+	align-items: center;
+	text-align: center;
+	color: #212121;
+}
+
+#display_para_div {
+	margin: auto;
+	align-items: center;
+	text-align: center;
+	font-family: 'Comic Sans MS', cursive, sans-serif;
+	font-weight: bold;
+	font-size: 20px;
+	width: 50%;
+	height: 5em;
+	overflow: hidden;
+	margin-bottom: 2em;
+	margin-top: 2em;
+}
+
+#user_input_div {
+	margin: auto;
+	align-items: center;
+	text-align: center;
+	width: 50%;
+}

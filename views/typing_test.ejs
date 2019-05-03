@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/typing_test.css' />
+    <script>
+		var word_list = <%- JSON.stringify(word_list) %>;
+	</script>
+  </head>
+  <body>
+    <div id='title_div'>
+    	<h1><%= title %></h1>
+    </div>
+    <div id='display_para_div'>
+    	<% for(var i=0; i<word_list.length; i++) {%><span id='word_<%= i %>'><% for(var j=0; j<word_list[i].length; j++) {%><span class='not_typed' id='word_<%= i %>_<%= j %>'><%=word_list[i][j]%></span><% } %><!-- Single line else whitespace is added between letters of a span!! --></span><span id='space_<%= i %>'> </span><% } %>
+    </div>
+    <div id='user_input_div'>
+    </div>
+  </body>
+  <script type='text/javascript' src='/javascripts/typing_test.js'></script>
+</html>
