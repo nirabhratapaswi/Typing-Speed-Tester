@@ -5,6 +5,7 @@
     <link rel='stylesheet' href='/stylesheets/typing_test.css' />
     <script>
 		var word_list = <%- JSON.stringify(word_list) %>;
+		var mode = <%- JSON.stringify(mode) %>;
 		var on_word = 0;
 		var on_letter = 0;
 		var check_space = false;
@@ -16,11 +17,32 @@
   <body>
     <div id='title_div'>
     	<h1><%= title %></h1>
-    	<p>Works only in full screen(don't minimize)</p>
+    </div>
+    <div id='play_mode_div'>
+    	<input class='radio_play_mode' type='radio' id='play_mode_radio_1' name='play_mode_radio' value='time' checked> Time Limit
+    	&nbsp;&nbsp;&nbsp;&nbsp;
+    	<input class='radio_play_mode' type='radio' id='play_mode_radio_2' name='play_mode_radio' value='self'> Self Paced (Complete 150 words)
+    </div>
+    <div id='word_limit_div_parent'>
+    	<div id='word_limit_div'>
+    		<input type='number' name='quantity' id='word_limit' min='1' max='200' value='20'>
+    		<button id='reset_word_limit_button' onclick='getNewParagraph()'>Reset Word Limit</button>
+    	</div>
+    </div>
+    <div id='timer_div_parent'>
+    	<div id='timer_div'>
+    	</div>
     </div>
     <div id='display_para_div'>
-    </div>
+	    <div id='display_para_div_text'>
+	    </div>
+	</div>
     <div id='user_input_div'>
+    </div>
+    <div id='start_div'>
+    	<button id='start_button' onclick='startTest()'>Start Test</button>
+    </div>
+    <div id='score'>
     </div>
   </body>
   <script type='text/javascript' src='/javascripts/typing_test.js'></script>

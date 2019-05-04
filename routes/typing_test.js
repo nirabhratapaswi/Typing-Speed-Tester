@@ -35,13 +35,28 @@ function loadHard(number) {
 /* GET easy page. */
 router.get('/easy', function(req, res, next) {
 	console.log();
-	res.render('typing_test', { title: 'Easy Typing Test', word_list: loadEasy(150) });
+	res.render('typing_test', { title: 'Easy Typing Test', word_list: loadEasy(150), mode: 'easy' });
 });
 
 /* GET hard page. */
 router.get('/hard', function(req, res, next) {
 	console.log();
-	res.render('typing_test', { title: 'Hard Typing Test', word_list: loadHard(150) });
+	res.render('typing_test', { title: 'Hard Typing Test', word_list: loadHard(150), mode: 'hard' });
+});
+
+router.get('/easy/api', function(req, res, next) {
+	let words = 50;
+	if (req.query.words)
+		words = parseInt(req.query.words);
+	res.json({word_list: loadEasy(words)});
+});
+
+/* GET hard page. */
+router.get('/hard/api', function(req, res, next) {
+	let words = 50;
+	if (req.query.words)
+		words = parseInt(req.query.words);
+	res.json({word_list: loadHard(words)});
 });
 
 module.exports = router;
